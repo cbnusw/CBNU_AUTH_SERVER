@@ -1,0 +1,41 @@
+version: "3.9"
+
+services:
+  auth:
+    build:
+      context: ./auth
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./auth/server-Logs:/usr/src/app/logs
+      - ./auth:/usr/src/app/auth
+    depends_on:
+      - mongodb
+    links:
+      - mongodb
+
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/ssl:/etc/nginx/ssl
+      - ./nginx/conf.d:/etc/nginx/conf.d
+    depends_on:
+      - auth
+
+  mongodb:
+    build:
+      context: ./mongo
+      dockerfile: Dockerfile
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./mongo/mongodb:/data/db
+
+
+

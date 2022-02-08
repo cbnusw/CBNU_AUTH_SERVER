@@ -1,0 +1,3 @@
+FROM nginx
+EXPOSE 443
+EXPOSE 80
