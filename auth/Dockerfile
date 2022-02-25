@@ -14,4 +14,4 @@ RUN npm i -g pm2
 
 EXPOSE 4000
 
-CMD ["pm2-docker", "/usr/src/app/auth/index.js", "-i", "10", "--name", "auth-server"]
+CMD ["pm2-docker", "/usr/src/app/auth/index.js", "-i", "16", "--name", "auth-server"]

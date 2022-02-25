@@ -5,47 +5,37 @@ services:
     build:
       context: ./auth
       dockerfile: Dockerfile
-
     expose:
       - "4000"
-
     volumes:
       - ./auth/server-Logs:/usr/src/app/logs
       - ./auth:/usr/src/app/auth
-
     depends_on:
       - mongodb
     links:
       - mongodb
-
+    restart: always
 
   nginx:
     build:
       context: ./nginx
       dockerfile: Dockerfile
-
     ports:
       - "80:80"
       - "443:443"
-
     volumes:
       - ./nginx/ssl:/etc/nginx/ssl
       - ./nginx/conf.d:/etc/nginx/conf.d
-
     depends_on:
       - auth
-
+    restart: always
 
   mongodb:
     build:
       context: ./mongo
       dockerfile: Dockerfile
-
     expose:
       - "27017"
-
     volumes:
       - ./mongo/mongodb:/data/db
-
-
-
+    restart: always
