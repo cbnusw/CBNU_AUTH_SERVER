@@ -29,13 +29,3 @@ services:
     depends_on:
       - auth
     restart: always
-
-  mongodb:
-    build:
-      context: ./mongo
-      dockerfile: Dockerfile
-    expose:
-      - "27017"
-    volumes:
-      - ./mongo/mongodb:/data/db
-    restart: always
