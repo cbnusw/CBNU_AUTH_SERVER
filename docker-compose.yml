@@ -10,10 +10,6 @@ services:
     volumes:
       - ./auth/server-Logs:/usr/src/app/logs
       - ./auth:/usr/src/app/auth
-    depends_on:
-      - mongodb
-    links:
-      - mongodb
     restart: always
 
   nginx:
