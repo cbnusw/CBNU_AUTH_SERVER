@@ -23,7 +23,8 @@ const {
   USER_NAME_REQUIRED,
   USER_PHONE_REQUIRED,
   USER_INFO_NOT_FOUND,
-  USER_NOT_FOUND
+  USER_NOT_FOUND,
+  USER_UNIVERSITY_REQUIRED
 } = require('../shared/errors');
 
 const getMe = asyncHandler(async (req, res, next) => {
@@ -75,7 +76,9 @@ const join = asyncHandler(async (req, res, next) => {
   if (!info.email) return next(USER_EMAIL_REQUIRED);
   if (!info.phone) return next(USER_PHONE_REQUIRED);
   if (!NOT_OPERATOR_ROLES.includes(role)) return next(INVALID_ROLE);
+
   if (role !== 'member' && !info.department) return next(USER_DEPARTMENT_REQUIRED);
+  if (role !== 'member' && !info.university) return next(USER_UNIVERSITY_REQUIRED);
 
   info.email = info.email.toLowerCase();
 

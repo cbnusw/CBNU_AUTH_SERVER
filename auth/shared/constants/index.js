@@ -16,6 +16,15 @@ const roles = [
   ...notOperatorRoles,
 ];
 
+const universities = [
+  '충북대학교',
+  '한국교통대학교',
+  '건국대학교',
+  '서원대학교',
+  '청주대학교',
+  '공군사관학교'
+]
+
 // 운영자가 아닌 사람의 권한 설정
 const permissions = [
   'judge',
@@ -65,3 +74,5 @@ exports.FILE_ACCESS = access;
 exports.NOTICE_ACCESS = access;
 exports.FILE_TYPES = fileTypes;
 exports.QNA_CATEGORIES = qnaCategories;
+exports.UNIVERSITIES = universities;
+

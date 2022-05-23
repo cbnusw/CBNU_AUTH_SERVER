@@ -25,6 +25,7 @@ const errors = {
   USER_INFO_NOT_MATCHED: [400, '사용자 정보가 일치하지 않습니다.'],
   USER_INFO_REQUIRED: [400, '사용자 정보가 필요합니다.'],
   USER_NAME_REQUIRED: [400, '사용자 이름이 필요합니다.'],
+  USER_UNIVERSITY_REQUIRED: [400, '사용자 대학이 필요합니다'],
   USER_NOT_DELETED: [400, '삭제된 회원이 아닙니다.'],
   USER_PHONE_REQUIRED: [400, '사용자 연락처가 필요합니다.'],
   WRITER_INFO_REQUIRED: [400, '작성자 정보가 필요합니다.'],

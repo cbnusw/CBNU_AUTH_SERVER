@@ -6,7 +6,7 @@
     "start:auth": "npx pm2 start config/pm2/pm2.auth.config.js",
     "stop:auth": "npx pm2 del auth-app",
     "restart:auth": "npx npm-run-all --sequential stop:auth start:auth",
-    "dev:auth": "npx nodemon --watch shared index.js",
+    "dev:auth": "npx nodemon --watch shared index.js --trace-warnings",
     "clear:log": "npx rimraf logs"
   },
   "keywords": [],
